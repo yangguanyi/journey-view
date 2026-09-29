@@ -1,4 +1,4 @@
-const CACHE='family-view-v1';
+const CACHE='family-view-v2';
 const ASSETS=['./','index.html','style.css','viewer.mjs','crypto.mjs','format.mjs','timeline.mjs','progress.mjs','map.mjs','leaflet.js','leaflet.css','land.json','icon.svg','manifest.webmanifest'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('family-view-')&&key!==CACHE)await caches.delete(key);await self.clients.claim()})()));
